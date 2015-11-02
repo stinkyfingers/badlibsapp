@@ -1,0 +1,26 @@
+<h2 class="center">{{lib.title}}</h2>
+<h6 class="center">Rated: {{lib.rating}}</h6>
+
+<form name="playLibForm" ng-if="!completed_lib">
+	<ul class="libPlay">
+
+		<h3>Enter the parts of speech below:</h3>
+		<li ng-repeat="word in lib_array track by $index">
+			<label for="user_word">{{word.value}}:</label>
+			<input type="text" name="user_word" class="partsOfSpeechInput" ng-model="word_array[$index].user_word" required>
+		</li>
+
+	</ul>
+	<button ng-click="submitPos()" class="std">Submit</button>
+
+</form>
+
+
+<div ng-if="completed_lib" class="completedLib">
+	{{completed_lib}}
+
+	<div>
+		<button ng-click="clear()" class="std">Start Over</button>
+	</div>
+
+</div>

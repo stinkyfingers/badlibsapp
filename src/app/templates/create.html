@@ -1,0 +1,33 @@
+<h2>Create a BabLib</h2>
+
+<form name="libForm" class="textForm"  ng-if="!new_pos" novalidate>
+
+	<label for="title">Title:
+	<input type="text" name="title" ng-model="lib.title" required></label>
+	<label for="text">Text:
+	<textarea name="text" ng-model="lib.text" id="libtext" required></textarea></label>
+	<label for="rate">Rating:
+	<select name="rate" ng-model="lib.rating" ng-options="rating.value as rating.value for rating in ratings" required>
+	</select></label>
+	
+</form>
+
+<div class="partsOfSpeech textForm">
+	<label>Parts of Speech:</label>
+	<button ng-repeat="p in pos" ng-click="append(p.code)" ng-if="!new_pos">{{p.value}}</button>
+	<button class="warning" ng-click="new_pos = true">Add New Part Of Speech</button>
+</div>
+
+
+<form class="textForm" ng-if="new_pos">
+	<label for="value">Name:
+	<input type="text" name="value" ng-model="user_pos.value"></label>
+	<button ng-click="create_pos()">Save</button>
+	<button ng-click="cancel()">Cancel</button>
+</form>
+
+<div class="submit textForm"  ng-if="!new_pos">
+	<label>Save/Start Over:</label>
+	<button class="std" ng-click="create_lib(lib)" ng-disabled="libForm.$invalid">Save</button>
+	<button class="std" ng-click="clear()">Clear</button>
+</div>

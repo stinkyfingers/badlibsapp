@@ -1,0 +1,20 @@
+
+<div class="ratingSelect">
+	<label>Filter by rating:</label>
+	<select name="rate" ng-model="lib_filter.rating" ng-options="rating.value as rating.value for rating in ratings | orderBy: 'sort'">
+		<option value="">Please select...</option>
+	</select>
+	<button ng-click="lib_filter = undefined">Clear</button>
+</div>
+
+<ul class="libsList" ng-if="(libs | filter:lib_filter).length > 0">
+	<h3>Select a BadLib to play:</h3>
+	<li ng-repeat="lib in libs | filter: lib_filter">
+		<a href="play?id={{lib._id}}">
+			{{lib.title}} <span ng-if="lib.rating">(Rated: {{lib.rating}})</span>
+		</a>
+	</li>
+</ul>
+
+
+<h3 ng-if="(libs | filter:lib_filter).length === 0">No BadLibs with that rating</h3>
