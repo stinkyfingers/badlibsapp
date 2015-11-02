@@ -18,9 +18,10 @@ app.get('/', function(req, res) {
 });
 
 // Start the server
-var server = app.listen(process.env.PORT || 8080, function () {
-  var host = server.address().address;
-  var port = server.address().port;
-
-  console.log('App listening at http://%s:%s', host, port);
-});
+// listen (start app with node server.js) ======================================
+var port = process.env.PORT;
+if (port === '' || port === undefined){
+    port = 8081;
+}
+app.listen(port);
+console.log("App listening on port " + port);
