@@ -4,7 +4,7 @@ export class LibService {
 
     this.$log = $log;
     this.$http = $http;
-    this.apiHost = 'http://localhost:8080';
+    this.apiHost = 'http://localhost:8081';
   }
 		find (lib){
 			return this.$http({
