@@ -1,5 +1,5 @@
 export class ListController {
-  constructor ($scope, $route, LibService, $rootScope) {
+  constructor ($scope, $route, LibService, $rootScope, $location) {
     'ngInject';
 
 		$scope.find_lib = {};
@@ -19,6 +19,10 @@ export class ListController {
 		}, (err) => {
 			$rootScope.$broadcast('error', err)
 		});
+
+		$scope.goto = (id) =>{
+			$location.url('/create?id=' + id);
+		};
     
     }
 }

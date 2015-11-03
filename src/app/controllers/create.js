@@ -7,6 +7,17 @@ export class CreateController {
         text: ''
     };
 
+    if ($route.current.params.id !== undefined){
+        LibService.find({_id: $route.current.params.id}).then((resp) => {
+            if(resp.data.length < 1){
+                return;
+            }
+            $scope.lib = resp.data[0];
+        }, (err) => {
+            $rootScope.$broadcast('error', err);
+        });
+    }
+
     //get pos
     LibService.findPartsOfSpeech({}).then((resp) => {
         $scope.pos = resp.data;
@@ -37,9 +48,21 @@ export class CreateController {
         });
     };
 
+    $scope.update_lib = () => {
+        LibService.updateLib($scope.lib).then(() => {
+            $location.path('/');
+        }, (err) => {
+            $rootScope.$broadcast('error', err);
+        });
+    };
+
     //clear
     $scope.clear = () => {
         $scope.lib = {};
+    };
+
+    $scope.home = () => {
+        $location.path('/');
     };
 
     $scope.create_pos = () => {

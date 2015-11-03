@@ -24,7 +24,7 @@ export class PlayController {
 
     $scope.parseLib = () => {
 		$scope.lib_array = [];
-		let lib_array = $scope.lib.text.match(/<[A-Za-z_]*>/gi);
+		let lib_array = $scope.lib.text.match(/<[A-Za-z_-]*>/gi);
 		for (let i in lib_array){
 			let temp = $scope.lib.text.replace(lib_array[i], () =>{
 				return '@' + i;

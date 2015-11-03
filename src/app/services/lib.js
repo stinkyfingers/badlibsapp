@@ -38,6 +38,14 @@ export class LibService {
 			});
 		}
 
+		updateLib (lib){
+			return this.$http({
+				method:'post',
+				url: this.apiHost + '/lib/update',
+				data: lib
+			});
+		}
+
 		createPos (pos){
 			return this.$http({
 				method:'post',

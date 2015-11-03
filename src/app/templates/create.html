@@ -28,6 +28,8 @@
 
 <div class="submit textForm"  ng-if="!new_pos">
 	<label>Save/Start Over:</label>
-	<button class="std" ng-click="create_lib(lib)" ng-disabled="libForm.$invalid">Save</button>
-	<button class="std" ng-click="clear()">Clear</button>
+	<button class="std" ng-if="!lib._id" ng-click="create_lib(lib)" ng-disabled="libForm.$invalid">Save</button>
+	<button class="std" ng-if="lib._id" ng-click="update_lib(lib)" ng-disabled="libForm.$invalid">Save</button>
+	<button class="std alert" ng-click="clear()">Clear</button>
+	<button class="std warning" ng-click="home()">Cancel</button>
 </div>

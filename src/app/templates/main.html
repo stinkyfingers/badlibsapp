@@ -10,9 +10,19 @@
 <ul class="libsList" ng-if="(libs | filter:lib_filter).length > 0">
 	<h3>Select a BadLib to play:</h3>
 	<li ng-repeat="lib in libs | filter: lib_filter">
-		<a href="play?id={{lib._id}}">
-			{{lib.title}} <span ng-if="lib.rating">(Rated: {{lib.rating}})</span>
-		</a>
+		<div class="row">
+			<div class="large-6 columns">
+				<a href="play?id={{lib._id}}">
+					{{lib.title}} 
+				</a>
+			</div>
+			<div class="large-2 columns">
+				<span ng-if="lib.rating">(Rated: {{lib.rating}})</span>
+			</div>
+			<div class="large-4 columns">
+				<span><button ng-click="goto(lib._id)">Edit</button></span>
+			</div>
+		</div>
 	</li>
 </ul>
 
