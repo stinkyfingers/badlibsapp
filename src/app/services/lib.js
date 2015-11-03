@@ -1,10 +1,10 @@
 export class LibService {
-  constructor ($log, $http) {
+  constructor ($log, $http, Application) {
     'ngInject';
 
     this.$log = $log;
     this.$http = $http;
-    this.apiHost = 'http://localhost:8081';
+    this.apiHost = Application;
   }
 		find (lib){
 			return this.$http({

@@ -13,6 +13,7 @@ import { PlayController } from '../app/controllers/play';
 import { ListController } from '../app/controllers/list';
 import { CreateController } from '../app/controllers/create';
 import { LibService} from '../app/services/lib';
+import { Application} from '../app/application';
 
 angular.module('badlibsapp', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngMessages', 'ngAria', 'ngRoute', 'mm.foundation', 'toastr'])
   .constant('malarkey', malarkey)
@@ -27,5 +28,6 @@ angular.module('badlibsapp', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize',
   .controller('PlayController', PlayController)
   .controller('CreateController', CreateController)
   .controller('ListController', ListController)
+  .factory('Application', Application)
   .directive('acmeNavbar', NavbarDirective)
   .directive('acmeMalarkey', MalarkeyDirective);
