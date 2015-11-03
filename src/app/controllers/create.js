@@ -68,7 +68,7 @@ export class CreateController {
     $scope.create_pos = () => {
         let user_pos = $scope.user_pos;
         user_pos.value = user_pos.value.charAt(0).toUpperCase() + user_pos.value.slice(1);
-        user_pos.code = '<' + user_pos.value.toLowerCase().replace(' ', '_') + '>';
+        user_pos.code = '<' + user_pos.value.toLowerCase().replace(/ /g, '_') + '>';
         LibService.createPos(user_pos).then((resp) => {
             if ($scope.pos === null || $scope.pos === angular.isUndefined){
                 $scope.pos = [];
