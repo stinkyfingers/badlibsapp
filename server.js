@@ -9,11 +9,15 @@ app.use(bodyParser.urlencoded({'extended':'true'}));            // parse applica
 app.use(bodyParser.json());                                     // parse application/json
 app.use(bodyParser.json({ type: 'application/vnd.api+json' })); // parse application/vnd.api+json as json
 
+
 app.get('/_ah/health', function(req, res) {
   res.status(200).send('ok');
 });
 
 app.get('/', function(req, res) {
+        res.sendFile(path.join(__dirname, '/dist', 'index.html'));
+});
+app.get('/*', function(req, res) {
         res.sendFile(path.join(__dirname, '/dist', 'index.html'));
 });
 
