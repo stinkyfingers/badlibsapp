@@ -23,6 +23,10 @@ export class ListController {
 		$scope.goto = (id) =>{
 			$location.url('/create?id=' + id);
 		};
+
+		$scope.play = (id) =>{
+			$location.url('play?id=' + id);
+		};
     
     }
 }
