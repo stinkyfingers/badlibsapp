@@ -2,7 +2,13 @@
 	list-style-type: none;
 }
 .name, ul{
-	max-width:50%;
 	margin: 0;
 	padding: 0;
+}
+.libsList {
+	li {
+		background-color: rgb(200, 230, 250);
+		margin: 1em 0 1em 0;
+		padding: 0 1em 0 1em;
+	}
 }
